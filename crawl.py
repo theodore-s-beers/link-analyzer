@@ -8,14 +8,11 @@ from requests import get, Response
 def crawl_page(
     base_url: str,
     current_url: str = "",
-    pages: dict[str, Optional[int]] = None,
+    pages: dict[str, Optional[int]] = {},
     errors: str = "",
 ) -> tuple[dict[str, Optional[int]], str]:
     if current_url == "":
         current_url = base_url
-
-    if pages is None:
-        pages = {}
 
     current_normalized = normalize_url(current_url)
 
