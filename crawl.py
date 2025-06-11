@@ -35,7 +35,7 @@ def crawl_page(
     # In case of a bad URL...
     try:
         current_page = get(current_url)
-    except:
+    except Exception:
         errors += f"Could not complete GET request to {current_url}\n"
         pages[current_normalized] = None
         return (pages, errors)
@@ -70,7 +70,7 @@ def validate_response(resp: Response, url: str) -> None:
     if resp.status_code != 200:
         raise Exception(f"Bad status code, {resp.status_code}, for {url}")
 
-    if not "text/html" in resp.headers["Content-Type"]:
+    if "text/html" not in resp.headers["Content-Type"]:
         raise Exception(f"Bad content type, {resp.headers['Content-Type']}, for {url}")
 
 

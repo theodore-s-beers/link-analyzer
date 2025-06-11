@@ -1,0 +1,10 @@
+[project]
+name = "link-analyzer"
+version = "0.1.0"
+description = "TBD"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["lxml>=5.4.0", "requests>=2.32.4"]
+
+[dependency-groups]
+dev = ["ruff>=0.11.13", "ty>=0.0.1a8"]
